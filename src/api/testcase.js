@@ -7,7 +7,7 @@ const testcase = {
     getTestCase(params){
         return instance({
             method: 'get',
-            url: '/testcase',
+            url: '/case/listcase',
             // 如果是传递URL参数信息，则使用 params 参数
             params : params
         })
@@ -16,7 +16,7 @@ const testcase = {
     addTestCase(data){
         return instance({
             method :'post',
-            url : '/testcase',
+            url : '/case/addcase',
             data : data
         })
     },
@@ -24,7 +24,7 @@ const testcase = {
     deleteTestCase(data){
         return instance({
             method : 'delete',
-            url : '/testcase',
+            url : '/case/deletecase',
             // 如果是传递请求体，则使用data 参数；如果是拼接参数用params
             data : data
         })
@@ -33,7 +33,7 @@ const testcase = {
     updateTestCase(data){
         return instance({
             method : 'put',
-            url : '/testcase',
+            url : '/case/updatacase',
              // 如果是传递请求体，则使用data 参数
             data : data
         })

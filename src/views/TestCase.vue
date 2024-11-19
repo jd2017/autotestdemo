@@ -9,7 +9,7 @@
       <v-toolbar
         flat
       >
-        <v-toolbar-title>测试用例</v-toolbar-title>
+        <v-toolbar-title>测试用例列表</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -49,16 +49,48 @@
                       label="ID"
                     ></v-text-field>
                   </v-col>
+                    <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.caseTitle"
+                      label="用例名称"
+                    ></v-text-field>
+                  </v-col>
                   <v-col
                     cols="12"
                     sm="6"
                     md="4"
                   >
                     <v-text-field
-                      v-model="editedItem.case_title"
-                      label="用例标题"
+                      v-model="editedItem.method"
+                      label="方法"
                     ></v-text-field>
                   </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.step"
+                      label="步骤"
+                    ></v-text-field>
+                  </v-col>
+
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.path"
+                      label="路径"
+                    ></v-text-field>
+                  </v-col>
+                
                   <v-col
                     cols="12"
                     sm="6"
@@ -142,7 +174,10 @@
           sortable: false,
           value: 'id',
         },
-        { text: '用例标题', value: 'case_title' },
+        { text: '标题', value: 'caseTitle' },
+        { text: '方法', value: 'method' },
+        { text: '步骤', value: 'step' },
+        { text: '路径', value: 'path' },
         { text: '备注', value: 'remark' },
         { text: '操作', value: 'actions', sortable: false },
       ],
@@ -150,12 +185,18 @@
       editedIndex: -1,
       editedItem: {
         id: '0',
-        case_title: '',
+        caseTitle: '',
+        method:'',
+        step:'',
+        path:'',
         remark: ''
       },
       defaultItem: {
         id: '0',
-        case_title: '',
+        caseTitle: '',
+        method:'',
+        step:'',
+        path:'',
         remark: ''
       },
     }),
@@ -182,10 +223,10 @@
     methods: {
       initialize () {
         this.$api.testcase.getTestCase().then((result) => {
-            console.log("result",result)
-            this.desserts = result.data
+            console.log("TestCase.vue页面初始化的result",result)
+            this.desserts = result.data.data
         }).catch((err) => {
-            console.log("error",err)
+            console.log("TaseCase.vue页面初始化用例error",err)
         });
       },
 
@@ -251,6 +292,7 @@
         } else {
             console.log("用例新增");
              //新增用例
+            //  const valuesArray = Object.values(data)
           this.$api.testcase.addTestCase(this.editedItem).then((result) => {
             if(result.data.code == 0){
                 this.initialize()
