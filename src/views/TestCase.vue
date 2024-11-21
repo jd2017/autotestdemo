@@ -110,7 +110,7 @@
                     md="4"
                   >
                     <v-text-field
-                      v-model="editedItem.caseTitle"
+                      v-model="editedItem.name"
                       label="用例名称"
                     ></v-text-field>
                   </v-col>
@@ -245,7 +245,7 @@
           sortable: false,
           value: 'id',
         },
-        { text: '标题', value: 'caseTitle' },
+        { text: '标题', value: 'name' },
         { text: '方法', value: 'method' },
         { text: '步骤', value: 'step' },
         { text: '路径', value: 'path' },
@@ -259,7 +259,7 @@
       // 修改表单数据
       editedItem: {
         id: '',
-        caseTitle: '',
+        name: '',
         method:'',
         step:'',
         path:'',
@@ -268,7 +268,7 @@
       // 默认表单数据
       defaultItem: {
         id: '',
-        caseTitle: '',
+        name: '',
         method:'',
         step:'',
         path:'',
