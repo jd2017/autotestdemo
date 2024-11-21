@@ -8,7 +8,7 @@
     <!-- 添加一个表格 -->
     <v-data-table
     :headers="recordHeaders"
-    :items="RcordDesserts"
+    :items="recordDesserts"
     :items-per-page="5"
     class="elevation-1"
   ></v-data-table>
@@ -19,7 +19,6 @@
     :items="desserts"
     sort-by="calories"
     class="elevation-1"
-    v-model="selected"
   >
     <!-- 顶部插槽 -->
     <template v-slot:top>
@@ -73,17 +72,17 @@
        // 数据表头
       recordHeaders: [
         { text: '记录ID',align:'start',sortable:false, value: 'id' },
-        { text: '报告地址', value: 'step' },
-        { text: '创建时间', value: 'actions', sortable: false },
+        { text: '报告地址', value: 'report' },
+        { text: '创建时间', value: 'create_time', sortable: false },
       ],
       // 数据源
       recordDesserts: [],
 
         // 数据表头
       headers: [
-        { text: '记录ID',align:'start',sortable:false, value: 'id' },
+        { text: '计划ID',align:'start',sortable:false, value: 'id' },
         { text: '计划名称', value: 'name' },
-        { text: '关联用例', value: 'step' },
+        { text: '关联用例', value: 'testcases' },
         { text: '操作', value: 'actions', sortable: false },
       ],
       // 数据源
@@ -109,14 +108,14 @@
       },
       buildPlan(item){
         this.$api.record.addRecord({'plan_id':item.id}).then((result) => {
-            console.log("Plan.vue页面增加记录",result.data)
+            console.log("Plan.vue页面执行计划",result.data)
         }).catch((err) => {
             console.log("Plan.vue页面异常处理",err)
         });
       },
       getRecord(item){
         this.$api.record.getRecord({'plan_id':item.id}).then((result) => {
-            console.log("Plan.vue页面初始化的result",result)
+            console.log("Plan.vue页面获取记录的result",result)
             // 接口数据赋值给表格
             this.recordDesserts = result.data.data
         }).catch((err) => {
@@ -125,7 +124,7 @@
         this.dialog = true;
       },
       deletePlan(item){
-        this.$api.record.deletePlan({'id':item.id}).then((result) => {
+        this.$api.plan.deletePlan({'id':item.id}).then((result) => {
             console.log("Plan.vue页面删除后result",result)
             // 删除后的初始化操作
             if(result.data.code===0){

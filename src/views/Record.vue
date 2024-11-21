@@ -4,7 +4,6 @@
     :items="desserts"
     sort-by="calories"
     class="elevation-1"
-    v-model="selected"
   >
     <!-- 顶部插槽 -->
     <template v-slot:top>
@@ -58,7 +57,6 @@
       ],
       // 数据源
       desserts: [],
-     
     }),
     
   // 生命周期函数
@@ -69,7 +67,7 @@
     methods: {
       // 初始化数据
       initialize () {
-        this.$api.record.getRcord().then((result) => {
+        this.$api.record.getRecord().then((result) => {
             console.log("Record.vue页面初始化的result",result)
             // 接口数据赋值给表格
             this.desserts = result.data.data

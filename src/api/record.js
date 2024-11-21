@@ -4,7 +4,7 @@ import instance from './http.js'
 
 const record = {
     // 获取计划
-    getRcord(params){
+    getRecord(params){
         return instance({
             method: 'get',
             url: '/record',
