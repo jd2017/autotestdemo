@@ -1,44 +1,35 @@
-// 测试用例的增删查改管理
+// 测试计划的增删查改管理
 // 导入已经添加基础配置的instance 实例
 import instance from './http.js'
 
-const testcase = {
-    // 获取用例
-    getTestCase(params){
+const plan = {
+    // 获取计划
+    getPlan(params){
         return instance({
             method: 'get',
-            url: '/testcase',
+            url: '/plan',
             // 如果是传递URL参数信息，则使用 params 参数
             params : params
         })
     },
-    // 添加用例
-    addTestCase(data){
+    // 添加计划
+    addPlan(data){
         return instance({
             method :'post',
-            url : '/testcase',
+            url : '/plan',
             data : data
         })
     },
-    // 删除用例
-    deleteTestCase(data){
+    // 删除计划
+    deletePlan(data){
         return instance({
             method : 'delete',
-            url : '/testcase',
+            url : '/plan',
             // 如果是传递请求体，则使用data 参数；如果是拼接参数用params
-            data : data
-        })
-    },
-    // 修改用例
-    updateTestCase(data){
-        return instance({
-            method : 'put',
-            url : '/testcase',
-             // 如果是传递请求体，则使用data 参数
             data : data
         })
     }
 }
 
 // 一定要添加导出操作，否则无法调用成功
-export default testcase;
+export default plan;

@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LayOut from '../views/LayOut.vue'
 import TestCase from '../views/TestCase.vue'
-import TestReport from '../views/TestReport.vue'
-import TestTask from '../views/TestTask.vue'
+import Record from '../views/Record.vue'
+import Plan from '../views/Plan.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 
@@ -35,14 +35,14 @@ const routes = [
         component: TestCase
       },
       {
-        path: 'task',
-        name: 'task',
-        component: TestTask
+        path: 'plan',
+        name: 'plan',
+        component: Plan
       },
       {
-        path: 'report',
-        name: 'report',
-        component: TestReport
+        path: 'record',
+        name: 'record',
+        component: Record
       }
     ]
   },

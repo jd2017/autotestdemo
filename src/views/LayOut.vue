@@ -73,9 +73,9 @@ import router from '@/router'
     data: () => ({ 
         drawer: null,
         items: [
-          { title: '测试用例', icon: 'mdi-view-dashboard',link:'#/layout/case' },
-          { title: '测试任务', icon: 'mdi-image',link:'#/layout/task' },
-          { title: '测试报告', icon: 'mdi-help-box',link:'#/layout/report' },
+          { title: '测试用例', icon: 'mdi-book',link:'#/layout/case' },
+          { title: '测试计划', icon: 'mdi-target',link:'#/layout/plan' },
+          { title: '测试记录', icon: 'mdi-format-list-numbered',link:'#/layout/record' },
         ],
         right: null,
     }),
@@ -84,7 +84,7 @@ import router from '@/router'
         //1，清空token
         localStorage.removeItem("token")
         //2，跳转到登录页面
-        this.$router.push('/login')
+        this.$router.push('/user/login')
       }
     }
   }

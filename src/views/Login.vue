@@ -83,8 +83,7 @@
           
             "username": this.name,
             "password": this.password
-        }
-        ).then((result) => {
+        }).then((result) => {
           //打印响应
           console.log('Login.vue页面打印响应结果'+result)
           //当Http响应状态码为200的时候，再进行业务状态码判断
@@ -93,9 +92,9 @@
             console.log('Login.vue页面打印业务状态码'+result.data.code)
             if(0 == result.data.code){//业务状态码为0代表登录成功
               //打印token信息
-              console.log(result.data.data.accessToken)
+              console.log(result.data.data.token)
               //1.把token信息放在本地
-              localStorage.setItem('token', result.data.data.accessToken)
+              localStorage.setItem('token', result.data.data.token)
               //2.页面跳转到首页
               this.$router.push('/layout/case')
             }else if(40013 == result.data.code){

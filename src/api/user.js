@@ -4,14 +4,14 @@ const user={
     login(data){
         return axios({
             method:'post',
-            url:'/auth/login',
+            url:'/user/login',
             data: data
         })
     },
     register(data){
         return axios({
             method:'post',
-            url:'/auth/register',
+            url:'/user/register',
             data: data
         })
     }

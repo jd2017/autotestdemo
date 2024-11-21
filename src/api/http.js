@@ -13,8 +13,8 @@ var instance = axios.create({
     timeout : 2500,
     //基础 url
     // baseURL : 'http://39.102.48.202:6099/'
-    // baseURL :'https://hogwarts-platform-backend.hogwarts.ceshiren.com/'
-    baseURL : 'http://127.0.0.1:8080/'
+    baseURL :'https://hogwarts-platform-backend.hogwarts.ceshiren.com/'
+    // baseURL : 'http://127.0.0.1:8080/'
     }
 )
 //请求拦截器
