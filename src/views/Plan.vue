@@ -41,7 +41,12 @@
     </template >
     <!-- 添加一个关联用例的插槽 -->
     <template v-slot:[`item.testcases`]="{item}">
-        <span v-for="i in item.testcases" :key="i.id">{{i.name}}｜</span>
+
+        [<span v-for="i in item.testcases" :key="i.id">
+          {{i.name}}
+          <span v-if="index !== item.testcases.length-1">,</span>
+        </span>
+        ]
 
     </template>
     <!-- 操作列插槽 -->
